@@ -1,9 +1,19 @@
-version: '3'
+version: '3.7'
 services:
 
-  socks5:
+  proxy0:
     restart: always
-    image: serjs/go-socks5-proxy
+    image: runtimeracer/go-socks5-reverseproxy
     env_file: .env
-    ports:
-      - "1080:1080"
+    command: someuser@vpn.myserver.com -R \*:1080:127.0.0.1:1080
+    environment:
+      - AUTOSSH_PORT=0
+    #network_mode: host
+    networks:
+      - proxy0
+
+networks:
+  proxy0:
+    driver: bridge
+    driver_opts:
+      parent: Ethernet

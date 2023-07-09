@@ -6,6 +6,8 @@ WORKDIR /go/src/github.com/serjs/socks5
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-s' -o ./socks5
 
-FROM gcr.io/distroless/static:nonroot
+FROM ctroncoso/alpine-autossh
 COPY --from=builder /go/src/github.com/serjs/socks5/socks5 /
-ENTRYPOINT ["/socks5"]
+ADD docker-entrypoint.sh /usr/local/bin
+#COPY ./.ssh /payload
+ENTRYPOINT ["docker-entrypoint.sh"]
