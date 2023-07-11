@@ -12,7 +12,7 @@ privateKey=""
 #payload folder
 if [[ ! -d /payload ]]; then
 	mkdir /payload
-	if [[ ! -z "$var" ]]; then
+	if [[ ! -z "$privateKey" ]]; then
 	  echo "$privateKey" > /payload/id_rsa
 	fi
 fi
