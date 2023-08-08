@@ -1,9 +1,12 @@
-# go-socks5-proxy
-
-![Latest tag from master branch](https://github.com/serjs/socks5-server/workflows/Latest%20tag%20from%20master%20branch/badge.svg)
-![Release tag](https://github.com/serjs/socks5-server/workflows/Release%20tag/badge.svg)
+# go-socks5-reverseproxy
 
 Simple socks5 server using go-socks5 with authentication, allowed ips list and destination FQDNs filtering
+
+(https://github.com/serjs/socks5-server)
+
+merged with:
+
+https://github.com/ctroncoso/alpine-autossh
 
 # Examples
 
